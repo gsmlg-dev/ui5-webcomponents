@@ -7,10 +7,24 @@
 	width: 100%;
 }
 
-.ui5-vsd-header > [ui5-bar] {
+/* .ui5-vsd-header > [ui5-bar] {
 	height: 4rem;
 	box-shadow: none;
+} */
+
+/* header */
+.ui5-vsd-header-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: inherit;
+	width: inherit;
+	background-color: inherit;
+	box-shadow: inherit;
+	border-radius: inherit;
 }
+
+/* sub-header */
 
 .ui5-vsd-content {
 	margin: 0 -1rem;
