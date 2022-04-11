@@ -8,9 +8,9 @@ plugins:
         echo ${nextRelease.version};
         node .github/actions/rename.js;
         npx lerna link;
-        yarn install;
-        yarn run build;
-      "publishCmd": "node .github/actions/pre-release.js --version ${nextRelease.version}"
+        npm install;
+        npm run build;
+      "publishCmd": "node .github/actions/release.js --version ${nextRelease.version}"
 branches:
   - +([0-9])?(.{+([0-9]),x}).x
   - main
