@@ -1,4 +1,4 @@
-name: gsmlg-cli-release
+name: release
 on:
   push:
     paths:
