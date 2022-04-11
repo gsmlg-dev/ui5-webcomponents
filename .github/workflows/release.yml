@@ -24,15 +24,14 @@ jobs:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v2
 
-      - name: Setup golang
-        uses: actions/setup-go@v2
+      - uses: actions/setup-node@v1
         with:
-          go-version: '1.17.6'
+          node-version: 16
 
-      - name: Configure git for private modules
-        env:
-          TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-        run: git config --global url."https://gsmlg:${TOKEN}@github.com".insteadOf "https://github.com"
+      - name: 📥 Download deps
+        uses: bahmutov/npm-install@v1
+        with:
+          install-command: yarn --frozen-lockfile --silent
 
       - name: 🚀 Release
         uses: cycjimmy/semantic-release-action@v3
