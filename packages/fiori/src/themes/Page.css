@@ -17,6 +17,7 @@
 
 .ui5-page-header-root {
     z-index: 1;
+    width: inherit;
 }
 
 .ui5-page-content-root {
