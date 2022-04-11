@@ -41,7 +41,7 @@ const processPackageJSON = async file => {
 	const folder = file.split("package.json")[0];
 	const fileRead = await readFileAsync(file);
 	const fileContent = JSON.parse(fileRead.toString());
-	const name = fileContent.name.replace('@ui5/', '@gsmlg/');
+	const name = fileContent.name.replace('@ui5/', '@gsmlg/ui5-');
 
 	const version = NEW_VERSION || `0.0.0-${gitRev.slice(0,9,)}`;
 
