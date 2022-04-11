@@ -9,7 +9,7 @@ const execSync = child_process.execSync;
 const gitRev = execSync("git rev-parse HEAD").toString();
 
 const PACKAGES = {};
-const NPM_ORG = "@ui5/webcomponents";
+const NPM_ORG = "@gsmlg/ui5-webcomponents";
 
 const options = commandLineArgs([
 	{ name: 'version', alias: 'v', type: String },
@@ -41,7 +41,7 @@ const processPackageJSON = async file => {
 	const folder = file.split("package.json")[0];
 	const fileRead = await readFileAsync(file);
 	const fileContent = JSON.parse(fileRead.toString());
-	const name = fileContent.name;
+	const name = fileContent.name.replace('@ui5/', '@gsmlg/');
 
 	const version = NEW_VERSION || `0.0.0-${gitRev.slice(0,9,)}`;
 
