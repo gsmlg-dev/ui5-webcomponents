@@ -8,7 +8,7 @@ const gitRev = execSync("git rev-parse HEAD").toString();
 const PACKAGES = {};
 
 const run = async () => {
-    const FILES = await glob("**/packages/**/**.{js,md}", {
+    const FILES = await glob("**/packages/**/**.{js,md.json}", {
         "ignore": ["**/node_modules/**/*.*", "**/dist/**/*.*", "**/playground/**/*.*"],
     });
 

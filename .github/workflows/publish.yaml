@@ -27,4 +27,6 @@ jobs:
       env:
         NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       run: |
+        node ./.github/actions/rename.js
         node ./.github/actions/pre-release.js
+
