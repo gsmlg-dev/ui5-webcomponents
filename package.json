@@ -66,10 +66,10 @@
     "hash": "wsrun --exclude-missing hash",
     "copy-css": "copy-and-watch \"packages/base/dist/css/**/*\" packages/main/dist/resources/css/base/ && copy-and-watch \"packages/theming/dist/css/**/*\" packages/main/dist/resources/css/theming/ && copy-and-watch \"packages/main/dist/css/**/*\" packages/main/dist/resources/css/main/ && copy-and-watch \"packages/base/dist/css/**/*\" packages/fiori/dist/resources/css/base/ && copy-and-watch \"packages/theming/dist/css/**/*\" packages/fiori/dist/resources/css/theming/ && copy-and-watch \"packages/main/dist/css/**/*\" packages/fiori/dist/resources/css/main/",
     "prerelease": "node ./.github/actions/pre-release.js",
-    "prepare": "husky install",
+    "prepare": "echo prepare",
     "husky:commit-msg": "commitlint -e",
     "husky:lint": "yarn lint",
-    "husky:pre-push": "npm-run-all --sequential husky:commit-msg husky:lint"
+    "husky:pre-push": "echo pre-push"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.2.3",
