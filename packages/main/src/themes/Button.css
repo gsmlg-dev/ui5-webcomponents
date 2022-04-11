@@ -5,7 +5,7 @@
 }
 
 :host {
-	min-width: var(--_ui5_button_base_min_width);
+	/* min-width: var(--_ui5_button_base_min_width); */
 	height: var(--_ui5_button_base_height);
 	line-height: normal;
 	font-family: var(--_ui5_button_fontFamily);
