@@ -8,6 +8,7 @@ plugins:
         echo ${nextRelease.version};
         node .github/actions/rename.js;
         npx lerna link;
+        yarn install;
         yarn run build;
       "publishCmd": "node .github/actions/pre-release.js --version ${nextRelease.version}"
 branches:

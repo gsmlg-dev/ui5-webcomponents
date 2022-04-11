@@ -8,10 +8,13 @@ const gitRev = execSync("git rev-parse HEAD").toString();
 const PACKAGES = {};
 
 const run = async () => {
-    const FILES = await glob("**/packages/**/**.{js,md.json}", {
+    let files = await glob("packages/**/*.{md,js,json,html}", {
         "ignore": ["**/node_modules/**/*.*", "**/dist/**/*.*", "**/playground/**/*.*"],
     });
+    files = files.concat(await glob('packages/**/.eslintrc.js'));
+    const FILES = files;
 
+    console.log(FILES);
     // Step 1: process files
     const pkgs = await Promise.all(FILES.map(processFile));
 
@@ -23,6 +26,7 @@ const processFile = async file => {
     const folder = file.split("src/")[0];
     const fileRead = await fs.readFile(file);
     const content = fileRead.toString();
+    console.log('rename content of file: ', file);
     const fileContent = content.replaceAll('@ui5/', '@gsmlg/ui5-');
 
     PACKAGES[file] = { file, fileContent, folder };
