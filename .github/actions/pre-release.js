@@ -23,7 +23,7 @@ const NEW_VERSION = options.version;
 const OTP = options.otp;
 
 const run = async () => {
-	const FILES = await glob("**/packages/**/package.json", { 
+	const FILES = await glob("**/packages/**/package.json", {
 		"ignore": ["**/node_modules/**/*.*", "**/dist/**/*.*", "**/playground/**/*.*"],
 	});
 
@@ -42,6 +42,7 @@ const processPackageJSON = async file => {
 	const fileRead = await readFileAsync(file);
 	const fileContent = JSON.parse(fileRead.toString());
 	const name = fileContent.name.replace('@ui5/', '@gsmlg/ui5-');
+    fileContent.name = name;
 
 	const version = NEW_VERSION || `0.0.0-${gitRev.slice(0,9,)}`;
 
@@ -73,7 +74,7 @@ const getDependencies = (dependencies) => {
 const publishPackage = pkg => {
 	console.info(`Publish ${pkg.name}: ${pkg.version} ...`); // eslint-disable-line
 	const OTP_PARAM = OTP ? `--otp=${OTP}` : ``;
-	execSync(`yarn publish ${pkg.folder} --tag=${TAG} --new-version=${pkg.version} ${OTP_PARAM}`);
+	execSync(`yarn publish ${pkg.folder} --access publish --tag=${TAG} --new-version=${pkg.version} ${OTP_PARAM}`);
 };
 
 run().catch(error => {
