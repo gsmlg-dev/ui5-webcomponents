@@ -10,6 +10,7 @@ plugins:
         npx lerna link;
         npm install;
         npm run build;
+        npm config set "//registry.npmjs.org/:_authToken" "$NPM_TOKEN";
       "publishCmd": "node .github/actions/release.js --version ${nextRelease.version}"
 branches:
   - +([0-9])?(.{+([0-9]),x}).x
