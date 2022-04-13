@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
     font-family: "72";
     font-style: normal;
     font-weight: 400;
@@ -72,4 +72,4 @@
     src: local('72Black'),
     url(https://openui5nightly.hana.ondemand.com/resources/sap/ui/core/themes/sap_horizon/fonts/72-Black.woff2?ui5-webcomponents) format("woff2"),
     url(https://openui5nightly.hana.ondemand.com/resources/sap/ui/core/themes/sap_horizon/fonts/72-Black.woff?ui5-webcomponents) format("woff");
-}
+} */
