@@ -145,10 +145,11 @@ const registerLocaleDataLoader = (localeId, loader) => {
 	loaders.set(localeId, loader);
 };
 
+import localDataEn from "./LocaleData.en.js"; /* eslint-disable-line */
 // register default loader for "en" from ui5 CDN (dev workflow without assets)
 registerLocaleDataLoader("en", async runtimeLocaleId => {
 	// REPLACED: return (await fetch(`https://ui5.sap.com/1.60.2/resources/sap/ui/core/cldr/en.json`)).json();
-	return (await import('./LocaleData.en.json'));
+	return (await Promise.resolve(localDataEn)); /* eslint-disable-line */
 });
 
 // When the language changes dynamically (the user calls setLanguage),

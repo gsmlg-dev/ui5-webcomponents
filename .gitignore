@@ -14,6 +14,7 @@ dist
 node_modules
 npm-debug.log
 package-lock.json
+yarn.lock
 
 # Ignore Mac files
 .DS_Store

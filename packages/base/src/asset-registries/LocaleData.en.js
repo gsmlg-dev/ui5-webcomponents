@@ -1,4 +1,5 @@
-{
+/* eslint-disable */
+export default {
 	"__license": "This file has been derived from Unicode Common Locale Data Repository (CLDR) files (http://cldr.unicode.org). See the copyright and permission notice in the Unicode-Data-Files-LICENSE.txt available at the same location as this file or visit http://www.unicode.org/copyright.html",
 	"languages": {
 		"aa": "Afar",

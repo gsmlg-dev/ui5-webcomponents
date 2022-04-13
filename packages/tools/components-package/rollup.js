@@ -141,7 +141,7 @@ const getPlugins = ({ transpile }) => {
 		plugins.push(commonjs());
 		plugins.push(babel({
 			presets: ["@babel/preset-env"],
-			exclude: /node_modules\/(?!(lit-html|@ui5\/webcomponents))/, // exclude all node_modules/ except lit-html and all starting with @ui5/webcomponents
+			exclude: /node_modules\/(?!(lit-html|@ui5\/webcomponents|@gsmlg\/ui5-webcomponents))/, // exclude all node_modules/ except lit-html and all starting with @ui5/webcomponents
 			sourcemap: false,
 			babelHelpers: "bundled",
 		}));
