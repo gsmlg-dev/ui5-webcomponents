@@ -209,6 +209,7 @@ declare class AvatarGroup extends UI5Element {
      */
     _prepareAvatars(): void;
     _onfocusin(e: FocusEvent): void;
+    getFocusDomRef(): HTMLElement | undefined;
     /**
      * Returns the total width to item excluding the item width
      * RTL/LTR aware

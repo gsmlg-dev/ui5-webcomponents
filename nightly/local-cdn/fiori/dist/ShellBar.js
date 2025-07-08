@@ -449,6 +449,9 @@ let ShellBar = ShellBar_1 = class ShellBar extends UI5Element {
         if (this.breakpointSize !== mappedSize) {
             this.breakpointSize = mappedSize;
         }
+        this.branding.forEach(brandingEl => {
+            brandingEl._isSBreakPoint = this.isSBreakPoint;
+        });
     }
     _hideItems(items) {
         items.forEach(item => {
@@ -934,6 +937,9 @@ let ShellBar = ShellBar_1 = class ShellBar extends UI5Element {
     get hasAssistant() {
         return !!this.assistant.length;
     }
+    get hasBranding() {
+        return !!this.branding.length;
+    }
     get hasSearchField() {
         return !!this.searchField.length;
     }
@@ -1196,6 +1202,9 @@ __decorate([
 __decorate([
     slot()
 ], ShellBar.prototype, "assistant", void 0);
+__decorate([
+    slot()
+], ShellBar.prototype, "branding", void 0);
 __decorate([
     slot({ type: HTMLElement, "default": true, invalidateOnChildChange: true })
 ], ShellBar.prototype, "items", void 0);

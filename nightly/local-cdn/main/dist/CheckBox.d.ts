@@ -160,6 +160,19 @@ declare class CheckBox extends UI5Element implements IFormInputElement {
      */
     name?: string;
     /**
+     * Defines the form value of the component that is submitted when the checkbox is checked.
+     *
+     * When a form containing `ui5-checkbox` elements is submitted, only the values of the
+     * **checked** checkboxes are included in the form data sent to the server. Unchecked
+     * checkboxes do not contribute any data to the form submission.
+     *
+     * This property is particularly useful for **checkbox groups**, where multiple checkboxes with the same `name` but different `value` properties can be used to represent a set of related options.
+     *
+     * @default "on"
+     * @public
+     */
+    value: string;
+    /**
      * Defines the active state (pressed or not) of the component.
      * @private
      */
@@ -169,7 +182,7 @@ declare class CheckBox extends UI5Element implements IFormInputElement {
     get formValidityMessage(): string;
     get formValidity(): ValidityStateFlags;
     formElementAnchor(): Promise<HTMLElement | undefined>;
-    get formFormattedValue(): "on" | null;
+    get formFormattedValue(): string | null;
     constructor();
     onEnterDOM(): void;
     _onclick(): void;

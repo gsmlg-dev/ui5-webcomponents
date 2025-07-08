@@ -154,6 +154,7 @@ let UserMenu = UserMenu_1 = class UserMenu extends UI5Element {
     }
     _handleMenuItemClick(e) {
         const item = e.detail.item; // imrove: improve this ideally without "as" cating
+        item._updateCheckedState();
         if (!item._popover) {
             const eventPrevented = !this.fireDecoratorEvent("item-click", {
                 "item": item,

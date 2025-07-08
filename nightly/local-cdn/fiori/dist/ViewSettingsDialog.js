@@ -429,7 +429,7 @@ let ViewSettingsDialog = ViewSettingsDialog_1 = class ViewSettingsDialog extends
         this._restoreSettings(this._initialSettings);
         this._recentlyFocused = this._sortOrder;
         this._focusRecentlyUsedControl();
-        announce(this._resetButtonAction, InvisibleMessageMode.Polite);
+        announce(this._resetButtonAction, InvisibleMessageMode.Assertive);
     }
     /**
      * Sets current settings to ones passed as `settings` argument.

@@ -85,6 +85,7 @@ declare class ListItemBase extends UI5Element implements ITabbable {
     get _pressable(): boolean;
     get hasConfigurableMode(): boolean;
     get _effectiveTabIndex(): number | undefined;
+    get isListItemBase(): boolean;
 }
 export default ListItemBase;
 export type { ListItemBasePressEventDetail, };

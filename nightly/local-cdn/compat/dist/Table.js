@@ -29,6 +29,7 @@ import { LOAD_MORE_TEXT, ARIA_LABEL_SELECT_ALL_CHECKBOX, TABLE_HEADER_ROW_INFORM
 import TableTemplate from "./TableTemplate.js";
 // Styles
 import tableStyles from "./generated/themes/Table.css.js";
+import { patchScopingSuffix } from "./utils/CompatCustomElementsScope.js";
 const GROWING_WITH_SCROLL_DEBOUNCE_RATE = 250; // ms
 const PAGE_UP_DOWN_SIZE = 20;
 var TableFocusTargetElement;
@@ -97,6 +98,7 @@ var TableFocusTargetElement;
  * @constructor
  * @extends UI5Element
  * @public
+ * @deprecated Deprecated as of version 2.12.0, use `@ui5/webcomponents/dist/Table.js` instead.
  */
 let Table = Table_1 = class Table extends UI5Element {
     constructor() {
@@ -915,6 +917,7 @@ Table = Table_1 = __decorate([
         bubbles: true,
     })
 ], Table);
+patchScopingSuffix(Table);
 Table.define();
 export default Table;
 //# sourceMappingURL=Table.js.map

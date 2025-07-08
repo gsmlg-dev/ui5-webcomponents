@@ -95,6 +95,7 @@ declare class DateRangePicker extends DatePicker implements IFormInputElement {
     get endDateValue(): Date | null;
     get startValue(): string;
     get endValue(): string;
+    get _lastDateRangeForTheCurrentYear(): string;
     /**
      * @override
      */

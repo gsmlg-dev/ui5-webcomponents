@@ -22,7 +22,9 @@ let SideNavigationSelectableItemBase = class SideNavigationSelectableItemBase ex
     constructor() {
         super(...arguments);
         /**
-         * Defines whether the item is selected
+         * Defines whether the item is selected.
+         *
+         * **Note:** Items that have a set `href` and `target` set to `_blank` should not be selectable.
          *
          * @public
          * @default false
@@ -39,15 +41,15 @@ let SideNavigationSelectableItemBase = class SideNavigationSelectableItemBase ex
          */
         this.design = "Default";
         /**
-         * Indicates whether the navigation item is selectable. By default all items are selectable unless specifically marked as unselectable.
+         * Indicates whether the navigation item is selectable. By default, all items are selectable unless specifically marked as unselectable.
          *
          * When a parent item is marked as unselectable, selecting it will only expand or collapse its sub-items.
          * To improve user experience do not mix unselectable parent items with selectable parent items in a single side navigation.
          *
          *
          * **Guidelines**:
-         * - External links should be unselectable.
-         * - Items that trigger actions (with design "Action") should be unselectable.
+         * - Items with an assigned `href` and a target of `_blank` should be marked as unselectable.
+         * - Items that trigger actions (with design "Action") should be marked as unselectable.
          *
          * @public
          * @default false

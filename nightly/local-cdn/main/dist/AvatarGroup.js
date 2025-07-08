@@ -334,6 +334,9 @@ let AvatarGroup = AvatarGroup_1 = class AvatarGroup extends UI5Element {
     _onfocusin(e) {
         this._itemNavigation.setCurrentItem(e.target);
     }
+    getFocusDomRef() {
+        return this._itemNavigation._getCurrentItem();
+    }
     /**
      * Returns the total width to item excluding the item width
      * RTL/LTR aware

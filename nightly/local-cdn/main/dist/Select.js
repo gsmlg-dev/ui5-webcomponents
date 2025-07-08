@@ -165,7 +165,7 @@ let Select = Select_1 = class Select extends UI5Element {
         }
         const selectedOption = this.selectedOption;
         if (selectedOption) {
-            if ("value" in selectedOption && selectedOption.value) {
+            if ("value" in selectedOption && selectedOption.value !== undefined) {
                 return selectedOption.value;
             }
             return selectedOption.hasAttribute("value") ? selectedOption.getAttribute("value") : selectedOption.textContent;
@@ -267,7 +267,7 @@ let Select = Select_1 = class Select extends UI5Element {
         if (this._valueStorage !== undefined) {
             return this._valueStorage;
         }
-        return this.selectedOption?.value || this.selectedOption?.textContent || "";
+        return this.selectedOption?.value === undefined ? (this.selectedOption?.textContent || "") : this.selectedOption?.value;
     }
     get _selectedIndex() {
         return this.options.findIndex(option => option.selected);

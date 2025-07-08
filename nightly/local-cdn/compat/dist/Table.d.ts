@@ -108,6 +108,7 @@ declare enum TableFocusTargetElement {
  * @constructor
  * @extends UI5Element
  * @public
+ * @deprecated Deprecated as of version 2.12.0, use `@ui5/webcomponents/dist/Table.js` instead.
  */
 declare class Table extends UI5Element {
     eventDetails: {

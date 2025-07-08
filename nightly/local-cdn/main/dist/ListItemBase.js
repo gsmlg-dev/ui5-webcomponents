@@ -177,6 +177,9 @@ let ListItemBase = class ListItemBase extends UI5Element {
         }
         return this.forcedTabIndex ? parseInt(this.forcedTabIndex) : undefined;
     }
+    get isListItemBase() {
+        return true;
+    }
 };
 __decorate([
     property({ type: Boolean })

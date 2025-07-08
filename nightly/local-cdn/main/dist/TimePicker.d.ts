@@ -200,6 +200,7 @@ declare class TimePicker extends UI5Element implements IFormInputElement {
      * @default null
      */
     get dateValue(): Date | null;
+    get _lastAvailableTime(): string;
     /**
      * @protected
      */

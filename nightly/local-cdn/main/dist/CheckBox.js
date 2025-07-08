@@ -75,7 +75,7 @@ let CheckBox = CheckBox_1 = class CheckBox extends UI5Element {
         return this.getFocusDomRefAsync();
     }
     get formFormattedValue() {
-        return this.checked ? "on" : null;
+        return this.checked ? this.value : null;
     }
     constructor() {
         super();
@@ -160,6 +160,19 @@ let CheckBox = CheckBox_1 = class CheckBox extends UI5Element {
          * @public
          */
         this.wrappingType = "Normal";
+        /**
+         * Defines the form value of the component that is submitted when the checkbox is checked.
+         *
+         * When a form containing `ui5-checkbox` elements is submitted, only the values of the
+         * **checked** checkboxes are included in the form data sent to the server. Unchecked
+         * checkboxes do not contribute any data to the form submission.
+         *
+         * This property is particularly useful for **checkbox groups**, where multiple checkboxes with the same `name` but different `value` properties can be used to represent a set of related options.
+         *
+         * @default "on"
+         * @public
+         */
+        this.value = "on";
         /**
          * Defines the active state (pressed or not) of the component.
          * @private
@@ -335,6 +348,9 @@ __decorate([
 __decorate([
     property()
 ], CheckBox.prototype, "name", void 0);
+__decorate([
+    property()
+], CheckBox.prototype, "value", void 0);
 __decorate([
     property({ type: Boolean })
 ], CheckBox.prototype, "active", void 0);

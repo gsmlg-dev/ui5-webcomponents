@@ -42,7 +42,7 @@ declare class DateComponentBase extends UI5Element {
     /**
      * Determines the minimum date available for selection.
      *
-     * **Note:** If the formatPattern property is not set, the minDate value must be provided in the ISO date format (YYYY-MM-dd).
+     * **Note:** If the formatPattern property is not set, the minDate value must be provided in the ISO date format (yyyy-MM-dd).
      * @default ""
      * @since 1.0.0-rc.6
      * @public
@@ -51,7 +51,7 @@ declare class DateComponentBase extends UI5Element {
     /**
      * Determines the maximum date available for selection.
      *
-     * **Note:** If the formatPattern property is not set, the maxDate value must be provided in the ISO date format (YYYY-MM-dd).
+     * **Note:** If the formatPattern property is not set, the maxDate value must be provided in the ISO date format (yyyy-MM-dd).
      * @default ""
      * @since 1.0.0-rc.6
      * @public
@@ -67,7 +67,7 @@ declare class DateComponentBase extends UI5Element {
     calendarWeekNumbering: `${CalendarWeekNumbering}`;
     static i18nBundle?: I18nBundle;
     /**
-     * Cached instance of DateFormat with a format pattern of "YYYY-MM-dd".
+     * Cached instance of DateFormat with a format pattern of "yyyy-MM-dd".
      * Used by the getISOFormat method to avoid creating a new DateFormat instance on each call.
      * @private
      */

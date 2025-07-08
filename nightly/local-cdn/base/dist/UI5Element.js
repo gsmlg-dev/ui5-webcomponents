@@ -206,11 +206,11 @@ class UI5Element extends HTMLElement {
             this._startObservingDOMChildren();
             await this._processChildren();
         }
-        if (!this._inDOM) { // Component removed from DOM while _processChildren was running
-            return;
-        }
         if (!ctor.asyncFinished) {
             await ctor.definePromise;
+        }
+        if (!this._inDOM) { // Component removed from DOM while _processChildren was running
+            return;
         }
         renderImmediately(this);
         this._domRefReadyPromise._deferredResolve();

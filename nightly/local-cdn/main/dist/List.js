@@ -780,6 +780,9 @@ let List = List_1 = class List extends UI5Element {
         }
     }
     onItemToggle(e) {
+        if (!e.target?.isListItemBase) {
+            return;
+        }
         this.fireDecoratorEvent("item-toggle", { item: e.detail.item });
     }
     onForwardBefore(e) {

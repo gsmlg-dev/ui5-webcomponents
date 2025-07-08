@@ -11,6 +11,7 @@ import type ListItemBase from "@ui5/webcomponents/dist/ListItemBase.js";
 import type PopoverHorizontalAlign from "@ui5/webcomponents/dist/types/PopoverHorizontalAlign.js";
 import type ShellBarItem from "./ShellBarItem.js";
 import type { ShellBarItemAccessibilityAttributes } from "./ShellBarItem.js";
+import type ShellBarBranding from "./ShellBarBranding.js";
 type ShellBarLogoAccessibilityAttributes = {
     role?: Extract<AriaRole, "button" | "link">;
     name?: string;
@@ -234,6 +235,17 @@ declare class ShellBar extends UI5Element {
      */
     assistant: Array<IButton>;
     /**
+     * Defines the branding slot.
+     * The `ui5-shellbar-branding` component is intended to be placed inside this slot.
+     * Content placed here takes precedence over the `primaryTitle` property and the `logo` content slot.
+     *
+     * **Note:** The `branding` slot is in an experimental state and is a subject to change.
+     *
+     * @since 2.12.0
+     * @public
+     */
+    branding: Array<ShellBarBranding>;
+    /**
      * Defines the `ui5-shellbar` additional items.
      *
      * **Note:**
@@ -447,6 +459,7 @@ declare class ShellBar extends UI5Element {
     get showMenuButton(): string | boolean;
     get popoverHorizontalAlign(): `${PopoverHorizontalAlign}`;
     get hasAssistant(): boolean;
+    get hasBranding(): boolean;
     get hasSearchField(): boolean;
     get hasMidContent(): boolean;
     get hasProfile(): boolean;

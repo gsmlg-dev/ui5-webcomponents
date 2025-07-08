@@ -295,6 +295,7 @@ declare class DatePicker extends DateComponentBase implements IFormInputElement 
      */
     normalizeValue(value: string): string;
     get _displayFormat(): string;
+    get _lastDayOfTheYear(): string;
     /**
      * @protected
      */

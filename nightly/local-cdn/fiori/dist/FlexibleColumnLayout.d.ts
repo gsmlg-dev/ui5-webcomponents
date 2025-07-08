@@ -324,6 +324,9 @@ declare class FlexibleColumnLayout extends UI5Element {
     get startColumnDOM(): HTMLElement;
     get midColumnDOM(): HTMLElement;
     get endColumnDOM(): HTMLElement;
+    get isStartColumnCollapsing(): boolean;
+    get isMidColumnCollapsing(): boolean;
+    get isEndColumnCollapsing(): boolean;
     get accStartColumnText(): string;
     get accMiddleColumnText(): string;
     get accEndColumnText(): string;

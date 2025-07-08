@@ -35,7 +35,7 @@ let DateComponentBase = class DateComponentBase extends UI5Element {
         /**
          * Determines the minimum date available for selection.
          *
-         * **Note:** If the formatPattern property is not set, the minDate value must be provided in the ISO date format (YYYY-MM-dd).
+         * **Note:** If the formatPattern property is not set, the minDate value must be provided in the ISO date format (yyyy-MM-dd).
          * @default ""
          * @since 1.0.0-rc.6
          * @public
@@ -44,7 +44,7 @@ let DateComponentBase = class DateComponentBase extends UI5Element {
         /**
          * Determines the maximum date available for selection.
          *
-         * **Note:** If the formatPattern property is not set, the maxDate value must be provided in the ISO date format (YYYY-MM-dd).
+         * **Note:** If the formatPattern property is not set, the maxDate value must be provided in the ISO date format (yyyy-MM-dd).
          * @default ""
          * @since 1.0.0-rc.6
          * @public
@@ -131,7 +131,7 @@ let DateComponentBase = class DateComponentBase extends UI5Element {
         if (!this._isoFormatInstance) {
             this._isoFormatInstance = DateFormat.getDateInstance({
                 strictParsing: true,
-                pattern: "YYYY-MM-dd",
+                pattern: "yyyy-MM-dd",
                 calendarType: this._primaryCalendarType,
             });
         }
