@@ -263,13 +263,6 @@ let Slider = Slider_1 = class Slider extends SliderBase {
             handle: {
                 [this.directionStart]: `${this._handlePositionFromStart}%`,
             },
-            label: {
-                "width": `${this._labelWidth}%`,
-            },
-            labelContainer: {
-                "width": `100%`,
-                [this.directionStart]: `-${this._labelWidth / 2}%`,
-            },
         };
     }
     get _sliderHandle() {

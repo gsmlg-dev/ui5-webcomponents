@@ -842,6 +842,10 @@ __decorate([
         type: HTMLElement,
         "default": true,
         individualSlots: true,
+        invalidateOnChildChange: {
+            properties: ["text"],
+            slots: false,
+        },
     })
 ], Tokenizer.prototype, "tokens", void 0);
 __decorate([

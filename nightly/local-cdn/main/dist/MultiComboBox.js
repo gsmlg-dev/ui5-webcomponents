@@ -13,7 +13,7 @@ import event from "@ui5/webcomponents-base/dist/decorators/event-strict.js";
 import jsxRender from "@ui5/webcomponents-base/dist/renderer/JsxRenderer.js";
 import ResizeHandler from "@ui5/webcomponents-base/dist/delegate/ResizeHandler.js";
 import ValueState from "@ui5/webcomponents-base/dist/types/ValueState.js";
-import { isShow, isDown, isUp, isSpace, isSpaceCtrl, isSpaceShift, isRight, isHome, isEnd, isTabNext, isTabPrevious, isUpShift, isDownShift, isLeftCtrl, isRightCtrl, isUpCtrl, isDownCtrl, isHomeCtrl, isEndCtrl, isCtrlA, isInsertShift, isBackSpace, isDelete, isEscape, isEnter, } from "@ui5/webcomponents-base/dist/Keys.js";
+import { isShow, isDown, isUp, isSpace, isSpaceCtrl, isSpaceShift, isRight, isLeft, isHome, isEnd, isTabNext, isTabPrevious, isUpShift, isDownShift, isLeftCtrl, isRightCtrl, isUpCtrl, isDownCtrl, isHomeCtrl, isEndCtrl, isCtrlA, isInsertShift, isBackSpace, isDelete, isEscape, isEnter, } from "@ui5/webcomponents-base/dist/Keys.js";
 import "@ui5/webcomponents-icons/dist/slim-arrow-down.js";
 import { renderFinished } from "@ui5/webcomponents-base/dist/Render.js";
 import { isPhone, isAndroid, isFirefox, } from "@ui5/webcomponents-base/dist/Device.js";
@@ -373,13 +373,24 @@ let MultiComboBox = MultiComboBox_1 = class MultiComboBox extends UI5Element {
         }
         return this.placeholder || "";
     }
-    _handleArrowLeft() {
+    // If the input is focused and the cursor is at the beginning/end of the input,
+    // focus the last token if the direction is LTR/ RTL
+    get _shouldFocusLastToken() {
         const inputDomRef = this._inputDom;
         const cursorPosition = inputDomRef.selectionStart || 0;
         const isTextSelected = ((inputDomRef.selectionEnd || 0) - cursorPosition) > 0;
-        if (cursorPosition === 0 && !isTextSelected) {
+        return cursorPosition === 0 && !isTextSelected;
+    }
+    _handleArrowKey(direction) {
+        if (this._shouldFocusLastToken && this.effectiveDir === direction) {
             this._tokenizer._focusLastToken();
         }
+    }
+    _handleArrowLeft() {
+        this._handleArrowKey("ltr");
+    }
+    _handleArrowRight() {
+        this._handleArrowKey("rtl");
     }
     _onPopoverFocusOut() {
         if (!isPhone()) {
@@ -448,6 +459,7 @@ let MultiComboBox = MultiComboBox_1 = class MultiComboBox extends UI5Element {
             e.preventDefault();
         }
         if (e.key === "ArrowLeft"
+            || e.key === "ArrowRight"
             || e.key === "Show"
             || e.key === "PageUp"
             || e.key === "PageDown"
@@ -850,7 +862,7 @@ let MultiComboBox = MultiComboBox_1 = class MultiComboBox extends UI5Element {
         }, 2000);
     }
     _onTokenizerKeydown(e) {
-        if (isRight(e)) {
+        if ((isRight(e) && this.effectiveDir === "ltr") || (isLeft(e) && this.effectiveDir === "rtl")) {
             const lastTokenIndex = this._tokenizer.tokens.length - this._tokenizer.overflownTokens.length - 1;
             if (e.target === this._tokenizer.tokens[lastTokenIndex]) {
                 setTimeout(() => {

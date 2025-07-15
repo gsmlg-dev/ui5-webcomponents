@@ -777,13 +777,6 @@ let RangeSlider = RangeSlider_1 = class RangeSlider extends SliderBase {
             endHandle: {
                 [this.directionStart]: `${this._secondHandlePositionFromStart}%`,
             },
-            label: {
-                "width": `${this._labelWidth}%`,
-            },
-            labelContainer: {
-                "width": `100%`,
-                [this.directionStart]: `-${this._labelWidth / 2}%`,
-            },
         };
     }
 };

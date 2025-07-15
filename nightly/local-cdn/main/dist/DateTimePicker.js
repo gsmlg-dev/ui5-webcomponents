@@ -25,6 +25,8 @@ import DateTimePickerTemplate from "./DateTimePickerTemplate.js";
 import DateTimePickerCss from "./generated/themes/DateTimePicker.css.js";
 import DateTimePickerPopoverCss from "./generated/themes/DateTimePickerPopover.css.js";
 import CalendarPickersMode from "./types/CalendarPickersMode.js";
+import query from "@ui5/webcomponents-base/dist/decorators/query.js";
+import { renderFinished } from "@ui5/webcomponents-base";
 const PHONE_MODE_BREAKPOINT = 640; // px
 /**
  * @class
@@ -213,7 +215,7 @@ let DateTimePicker = DateTimePicker_1 = class DateTimePicker extends DatePicker 
     /**
      * @override
      */
-    onSelectedDatesChange(e) {
+    async onSelectedDatesChange(e) {
         e.preventDefault();
         // @ts-ignore Needed for FF
         const dateTimePickerContent = e.path ? e.path[1] : e.composedPath()[1];
@@ -223,6 +225,12 @@ let DateTimePicker = DateTimePicker_1 = class DateTimePicker extends DatePicker 
             calendarValue: e.detail.selectedValues[0],
             timeSelectionValue: dateTimePickerContent.lastChild.value,
         };
+        this._showTimeView = true;
+        if (this.showDateView) {
+            return;
+        }
+        await renderFinished();
+        this._clocks.focus();
     }
     onTimeSelectionChange(e) {
         this._previewValues = {
@@ -325,6 +333,9 @@ __decorate([
 __decorate([
     property({ type: Object })
 ], DateTimePicker.prototype, "_previewValues", void 0);
+__decorate([
+    query("[ui5-time-selection-clocks]")
+], DateTimePicker.prototype, "_clocks", void 0);
 DateTimePicker = DateTimePicker_1 = __decorate([
     customElement({
         tag: "ui5-datetime-picker",

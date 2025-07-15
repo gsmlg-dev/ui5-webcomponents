@@ -124,13 +124,6 @@ declare class Slider extends SliderBase implements IFormInputElement {
         handle: {
             [x: string]: string;
         };
-        label: {
-            width: string;
-        };
-        labelContainer: {
-            [x: string]: string;
-            width: string;
-        };
     };
     get _sliderHandle(): Element;
     get tooltipValue(): string;

@@ -1,5 +1,16 @@
-commit 51e14a2a73c1974dfff9d665eb03d6656a67b607
-Author: Jonathan <3713684+gsmlg@users.noreply.github.com>
-Date:   Mon Jul 7 15:58:04 2025 +0800
+commit 95e00fdd299004bf5cb5e5cbd6fd95f130a94795
+Author: Konstantin Gogov <konstantin.gogov@sap.com>
+Date:   Fri Jul 11 13:25:54 2025 +0300
 
-    Merge pull request #2 from SAP/main
+    fix(ui5-li): move default slot documentation from class to property level (#11898)
+    
+    The default slot documentation was moved from the class-level JSDoc
+    comments to the actual slot property declaration for better clarity and
+    consistency.
+    
+    This change improves documentation structure while maintaining the same
+    functional behavior - the slot is still defined with `type: Node` and
+    `"default": true`, which ensures that text content changes will properly
+    trigger component invalidation as expected for Node-type slots.
+    
+    Relates to #11825

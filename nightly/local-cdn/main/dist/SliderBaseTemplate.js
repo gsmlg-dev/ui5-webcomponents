@@ -11,7 +11,7 @@ export default function SliderBaseTemplate(hooks) {
                                 _jsx("ul", { class: {
                                         "ui5-slider-labels": true,
                                         "ui5-slider-hidden-labels": this._labelsOverlapping,
-                                    }, style: this.styles.labelContainer, children: this._labels.map(l => _jsx("li", { style: this.styles.label, children: l })) })] }), (hooks?.progressBar || progressBar).call(this), (hooks?.handles || handles).call(this)] }), this.editableTooltip && _jsx(_Fragment, { children: _jsx("span", { id: "ui5-slider-InputDesc", class: "ui5-hidden-text", children: this._ariaDescribedByInputText }) })] }));
+                                    }, children: this._labels.map(l => _jsx("li", { "data-counter": l })) })] }), (hooks?.progressBar || progressBar).call(this), (hooks?.handles || handles).call(this)] }), this.editableTooltip && _jsx(_Fragment, { children: _jsx("span", { id: "ui5-slider-InputDesc", class: "ui5-hidden-text", children: this._ariaDescribedByInputText }) })] }));
 }
 export function handlesAriaText() { }
 export function progressBar() { }

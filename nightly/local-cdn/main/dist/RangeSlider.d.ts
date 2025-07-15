@@ -311,13 +311,6 @@ declare class RangeSlider extends SliderBase implements IFormInputElement {
         endHandle: {
             [x: string]: string;
         };
-        label: {
-            width: string;
-        };
-        labelContainer: {
-            [x: string]: string;
-            width: string;
-        };
     };
 }
 export default RangeSlider;

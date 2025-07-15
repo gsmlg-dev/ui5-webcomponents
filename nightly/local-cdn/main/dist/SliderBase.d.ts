@@ -120,10 +120,6 @@ declare abstract class SliderBase extends UI5Element {
     _handleUp(e: TouchEvent | MouseEvent): void;
     _onmousedown(e: TouchEvent | MouseEvent): void;
     _handleActionKeyPress(e: Event): void;
-    abstract styles: {
-        label: Record<string, string>;
-        labelContainer: Record<string, string>;
-    };
     abstract tickmarksObject: Array<boolean>;
     abstract _ariaLabelledByText: string;
     static get ACTION_KEYS(): ((event: KeyboardEvent) => boolean)[];

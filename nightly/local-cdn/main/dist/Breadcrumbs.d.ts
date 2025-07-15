@@ -107,6 +107,7 @@ declare class Breadcrumbs extends UI5Element {
      * @private
      */
     _getFocusableItems(): ITabbable[];
+    getFocusDomRef(): HTMLElement | undefined;
     /**
      * Returns the translatable accessible name for the popover
      * @private

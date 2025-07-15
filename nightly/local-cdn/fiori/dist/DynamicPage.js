@@ -182,9 +182,6 @@ let DynamicPage = DynamicPage_1 = class DynamicPage extends UI5Element {
     get headerAriaLabel() {
         return this.hasHeading ? this._headerLabel : undefined;
     }
-    get headerAriaExpanded() {
-        return this.hasHeading ? this._headerExpanded : undefined;
-    }
     /**
      * Defines if the header is snapped.
      *

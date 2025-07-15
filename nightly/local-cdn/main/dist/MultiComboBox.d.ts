@@ -296,7 +296,10 @@ declare class MultiComboBox extends UI5Element implements IFormInputElement {
     _inputLiveChange(e: InputEvent): void;
     _tokenDelete(e: CustomEvent<TokenizerTokenDeleteEventDetail>): void;
     get _getPlaceholder(): string;
+    get _shouldFocusLastToken(): boolean;
+    _handleArrowKey(direction: string): void;
     _handleArrowLeft(): void;
+    _handleArrowRight(): void;
     _onPopoverFocusOut(): void;
     _tokenizerFocusOut(e: FocusEvent): void;
     _tokenizerFocusIn(): void;
